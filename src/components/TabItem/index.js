@@ -1,26 +1,22 @@
-// Write your code here
-
 import './index.css'
 
 const TabItem = props => {
-  const {eachItemDetails, updateActiveTabId, isActive} = props
-  const {tabId, displayText} = eachItemDetails
+  const {tabDetails, setActiveTabId, isActive} = props
+  const {tabId, displayText} = tabDetails
 
-  const onClickTabItem = () => {
-    updateActiveTabId(tabId)
+  const onClickTab = () => {
+    setActiveTabId(tabId)
   }
 
-  const activeTabClassName = isActive ? `active-tab-btn` : ''
+  const tabBtnClassName = isActive ? 'tab-button active' : 'tab-button'
 
   return (
-    <li className="lits-items-container">
-      <button
-        className={`tab-btn ${activeTabClassName}`}
-        onClick={onClickTabItem}
-      >
+    <li className="tab-item">
+      <button type="button" onClick={onClickTab} className={tabBtnClassName}>
         {displayText}
       </button>
     </li>
   )
 }
+
 export default TabItem
